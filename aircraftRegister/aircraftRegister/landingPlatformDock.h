@@ -38,6 +38,8 @@ public:
 
 	virtual void display();
 
+	virtual void save();
+
 };
 
 #endif

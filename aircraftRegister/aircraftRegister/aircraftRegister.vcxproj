@@ -73,23 +73,36 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="aircraftCarrier.cpp" />
     <ClCompile Include="dataCon.cpp" />
+    <ClCompile Include="destroyer.cpp" />
+    <ClCompile Include="fleetAuxillary.cpp" />
+    <ClCompile Include="landingPlatformDock.cpp" />
     <ClCompile Include="list.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SSB.cpp" />
     <ClCompile Include="SSK.cpp" />
     <ClCompile Include="submarine.cpp" />
     <ClCompile Include="surfaceVessel.cpp" />
+    <ClCompile Include="tanker.cpp" />
     <ClCompile Include="vessel.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="aircraftCarrier.h" />
     <ClInclude Include="dataCon.h" />
+    <ClInclude Include="destroyer.h" />
+    <ClInclude Include="fleetAuxillary.h" />
+    <ClInclude Include="landingPlatformDock.h" />
     <ClInclude Include="list.h" />
     <ClInclude Include="SSB.h" />
     <ClInclude Include="SSK.h" />
     <ClInclude Include="submarine.h" />
     <ClInclude Include="surfaceVessel.h" />
+    <ClInclude Include="tanker.h" />
     <ClInclude Include="vessel.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="aircraftRegister.suo" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

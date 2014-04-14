@@ -6,6 +6,7 @@
 // Description:
 #include "fleetAuxillary.h"
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 unsigned int _deckSpace;
@@ -103,4 +104,20 @@ void FleetAuxillary::display()
 	
 
 	cout<<" Storage Capacity :"<< FleetAuxillary::getStorageCapacity()<<endl;
+}
+
+
+void FleetAuxillary::save()
+{
+	SurfaceVessel::save();
+
+	std::ofstream file;
+	file.open("savefile.xml",std::ios::app);
+
+	file<<"<DeckSpace>"<<FleetAuxillary::getDeckSpace()<<"</DeckSpace>\n"
+		<<"<StorCap>"<<FleetAuxillary::getStorageCapacity()<<"</StorCap>\n";
+					
+	file.close();
+
+
 }

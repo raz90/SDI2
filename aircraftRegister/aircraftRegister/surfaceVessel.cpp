@@ -6,6 +6,8 @@
 // Description:
 #include "surfaceVessel.h"
 #include <iostream>
+#include <fstream>
+
 using namespace std;
 
 unsigned int _noOfHelicopter;
@@ -85,5 +87,18 @@ void SurfaceVessel::display()
 {
 	Vessel::display();
 	cout<<"Number of Helicopters :"<< SurfaceVessel::getNoHelicopter() <<endl;
+
+}
+
+void SurfaceVessel::save()
+{
+	Vessel::save();
+	std::ofstream file;
+	file.open("savefile.xml",std::ios::app);
+
+	file<<"<NoOfHeli>"<<SurfaceVessel::getNoHelicopter()<<"</NoOfHeli>\n";
+		
+			
+	file.close();
 
 }

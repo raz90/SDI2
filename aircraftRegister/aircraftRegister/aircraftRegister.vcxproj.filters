@@ -9,7 +9,7 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="Source Files\Resource Files">
+    <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
     </Filter>
@@ -39,6 +39,21 @@
     <ClCompile Include="dataCon.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="fleetAuxillary.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="landingPlatformDock.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tanker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="destroyer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="aircraftCarrier.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="list.h">
@@ -62,5 +77,25 @@
     <ClInclude Include="dataCon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="fleetAuxillary.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="landingPlatformDock.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tanker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="destroyer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="aircraftCarrier.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="aircraftRegister.suo">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

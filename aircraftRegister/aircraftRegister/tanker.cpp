@@ -8,7 +8,7 @@
 #include "tanker.h"
 #include <string>
 #include <iostream>
-
+#include <fstream>
 //contrustor
 Tanker::Tanker()
 {
@@ -71,4 +71,21 @@ void Tanker::display()
 	
 
 	std::cout<<" Storage Capacity :" << Tanker::getStorageCapacity()<<std::endl;
+}
+
+void Tanker::save()
+{
+	FleetAuxillary::save();
+
+
+	std::ofstream file;
+	file.open("savefile.xml",std::ios::app);
+
+	file<<"<DeckSpace>"<<Tanker::getDeckSpace()<<"</DeckSpace>\n"
+		<<"<StorCap>"<<Tanker::getStorageCapacity()<<"</StorCap>\n";
+					
+	file.close();
+
+
+
 }

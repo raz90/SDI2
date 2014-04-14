@@ -6,6 +6,7 @@
 // Description:
 #include "aircraftCarrier.h"
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 
@@ -66,4 +67,18 @@ void AircraftCarrier::display()
 {
 	SurfaceVessel::display();
 	cout<< "Number of Aircraft" << AircraftCarrier::getNoOfAircraft() << endl;
+}
+
+void AircraftCarrier::save()
+{
+	SurfaceVessel::save();
+
+	std::ofstream file;
+	file.open("savefile.xml",std::ios::app);
+
+	file<<"<NoOfAircraft>"<<AircraftCarrier::getNoOfAircraft()<<"</NoOfAircraft>\n";
+					
+	file.close();
+
+
 }

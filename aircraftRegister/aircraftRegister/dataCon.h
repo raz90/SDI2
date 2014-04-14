@@ -20,11 +20,65 @@ public:
 	~DataCon();
 	
 	//insert data
-	void addSSK();
+	void addSSK(std::string pVesselName,
+		unsigned int pSignature,
+		unsigned int pLength, 
+		unsigned int pMaxRange, 
+		unsigned int pMaxSpeed, 
+		unsigned int pMaxDisp, 
+		unsigned int pCrew,
+		unsigned int pVessType,
+		unsigned int pMaxDive,
+		unsigned int pMaxSpeedSubmerge,
+		unsigned int pDispSubmerge,
+		unsigned int pNoTorpedo);
 
-	void addSSB();
+	void addSSB(std::string pVesselName,
+		unsigned int pSignature,
+		unsigned int pLength, 
+		unsigned int pMaxRange, 
+		unsigned int pMaxSpeed, 
+		unsigned int pMaxDisp, 
+		unsigned int pCrew,
+		unsigned int pVessType,
+		unsigned int pMaxDive,
+		unsigned int pMaxSpeedSubmerge,
+		unsigned int pDispSubmerge,
+		unsigned int pTotalSLBM);
+
+	void addTanker(std::string pVesselName,
+		unsigned int pSignature,
+		unsigned int pLength, 
+		unsigned int pMaxRange, 
+		unsigned int pMaxSpeed, 
+		unsigned int pMaxDisp, 
+		unsigned int pCrew,
+		unsigned int pType,
+		unsigned int pNoOfHelicopter,
+		unsigned int pDeckSpace,
+		unsigned int pStorageCapacity);
+
+	void addLanding(std::string pVesselName,
+								unsigned int pSignature,
+								unsigned int pLength, 
+								unsigned int pMaxRange, 
+								unsigned int pMaxSpeed, 
+								unsigned int pMaxDisp, 
+								unsigned int pCrew,
+								unsigned int pType,
+								unsigned int pNoOfHelicopter,
+								unsigned int pDeckSpace,
+								unsigned int pStorageCapacity,
+								unsigned int pNoOfAircraft);
+
+	void addDestroyer();
+
+	void addAirCarrier();
 	
+	//browsing
+
 	void showVessel();
+
 	//to delete data using id
 	void deleteVessel(std::string pID);
 

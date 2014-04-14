@@ -9,9 +9,11 @@
 #include "SSK.h"
 #include "SSB.h"
 #include "vessel.h"
-#include "submarine.h"
+#include "tanker.h"
+#include "landingPlatformDock.h"
 #include <iostream>
 #include "list.h"
+#include <string>
 
 
 
@@ -28,26 +30,34 @@ DataCon<anyType>::~DataCon()
 }
 
 
-/*
-template <class anyType>
-void DataCon<anyType>::addSSK()
-{
-	std::cout<<"adding Submarine"<<std::endl;
-	SSK *data=new SSK("hello",2,3,4,5,6,7,8,9,10,11);
-	
-	_dataList.addToList(data);
-	_count++;
-	std::cout<<"input succesful"<<std::endl;
-	std::cout<<getCount()<<std::endl;
-	
 
-}
-*/
 template <class anyType>
-void DataCon<anyType>::addSSK()
+void DataCon<anyType>::addSSK(std::string pVesselName,
+		unsigned int pSignature,
+		unsigned int pLength, 
+		unsigned int pMaxRange, 
+		unsigned int pMaxSpeed, 
+		unsigned int pMaxDisp, 
+		unsigned int pCrew,
+		unsigned int pVessType,
+		unsigned int pMaxDive,
+		unsigned int pMaxSpeedSubmerge,
+		unsigned int pDispSubmerge,
+		unsigned int pNoTorpedo)
 {
 	std::cout<<"adding Submarine SSK"<<std::endl;
-	SSK *data=new SSK("1",2,3,4,5,6,7,1,8,9,10,11);
+	SSK *data=new SSK( pVesselName,
+						 pSignature,
+						 pLength, 
+						 pMaxRange, 
+						 pMaxSpeed, 
+						 pMaxDisp, 
+						 pCrew,
+						 pVessType,
+						 pMaxDive,
+						 pMaxSpeedSubmerge,
+						 pDispSubmerge,
+						 pNoTorpedo);
 	_dataList.addToList(data);
 	_count++;
 	std::cout<<"input succesful"<<std::endl;
@@ -61,15 +71,37 @@ void DataCon<anyType>::addSSK()
 
 
 template <class anyType>
-void DataCon<anyType>::addSSB()
+void DataCon<anyType>::addSSB(std::string pVesselName,
+		unsigned int pSignature,
+		unsigned int pLength, 
+		unsigned int pMaxRange, 
+		unsigned int pMaxSpeed, 
+		unsigned int pMaxDisp, 
+		unsigned int pCrew,
+		unsigned int pVessType,
+		unsigned int pMaxDive,
+		unsigned int pMaxSpeedSubmerge,
+		unsigned int pDispSubmerge,
+		unsigned int pTotalSLBM)
 {
 	
 
 
 	std::cout<<"adding Submarine SSB"<<std::endl;
-	SSB *data2=new SSB("katak",2,3,4,5,6,7,2,8,9,10,11);
+	SSB *data=new SSB(pVesselName,
+						 pSignature,
+						 pLength, 
+						 pMaxRange, 
+						 pMaxSpeed, 
+						 pMaxDisp, 
+						 pCrew,
+						 pVessType,
+						 pMaxDive,
+						 pMaxSpeedSubmerge,
+						 pDispSubmerge,
+						 pTotalSLBM);
 	
-	_dataList.addToList(data2);
+	_dataList.addToList(data);
 	_count++;
 	std::cout<<"input succesful"<<std::endl;
 	std::cout<<getCount()<<std::endl;
@@ -77,6 +109,80 @@ void DataCon<anyType>::addSSB()
 	
 
 }
+
+template <class anyType>
+void DataCon<anyType>::addTanker(std::string pVesselName,
+		unsigned int pSignature,
+		unsigned int pLength, 
+		unsigned int pMaxRange, 
+		unsigned int pMaxSpeed, 
+		unsigned int pMaxDisp, 
+		unsigned int pCrew,
+		unsigned int pType,
+		unsigned int pNoOfHelicopter,
+		unsigned int pDeckSpace,
+		unsigned int pStorageCapacity)
+{
+	std::cout<<"adding Tanker"<<std::endl;
+	Tanker *data=new Tanker( pVesselName,
+							 pSignature,
+							 pLength, 
+							 pMaxRange, 
+							 pMaxSpeed, 
+							 pMaxDisp, 
+							 pCrew,
+							 pType,
+							 pNoOfHelicopter,
+							 pDeckSpace,
+							 pStorageCapacity);
+	
+	_dataList.addToList(data);
+	_count++;
+	std::cout<<"input succesful"<<std::endl;
+	std::cout<<getCount()<<std::endl;
+
+
+
+
+}
+
+template <class anyType>
+void DataCon<anyType>::addLanding(std::string pVesselName,
+								unsigned int pSignature,
+								unsigned int pLength, 
+								unsigned int pMaxRange, 
+								unsigned int pMaxSpeed, 
+								unsigned int pMaxDisp, 
+								unsigned int pCrew,
+								unsigned int pType,
+								unsigned int pNoOfHelicopter,
+								unsigned int pDeckSpace,
+								unsigned int pStorageCapacity,
+								unsigned int pNoOfAircraft)
+{
+	std::cout<<"adding Landing Platform Dock"<<std::endl;
+	LandingPlatformDock *data=new LandingPlatformDock( pVesselName,
+							 pSignature,
+							 pLength, 
+							 pMaxRange, 
+							 pMaxSpeed, 
+							 pMaxDisp, 
+							 pCrew,
+							 pType,
+							 pNoOfHelicopter,
+							 pDeckSpace,
+							 pStorageCapacity,
+							 pNoOfAircraft);
+	
+	_dataList.addToList(data);
+	_count++;
+	std::cout<<"input succesful"<<std::endl;
+	std::cout<<getCount()<<std::endl;
+
+}
+
+
+
 
 template <class anyType>
 void DataCon<anyType>::showVessel()

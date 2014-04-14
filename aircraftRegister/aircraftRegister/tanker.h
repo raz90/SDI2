@@ -27,7 +27,7 @@ public:
 	~Tanker();
 	
 	//setter
-	void seTanker(std::string pVesselName,
+	void setTanker(std::string pVesselName,
 								unsigned int pSignature,
 								unsigned int pLength, 
 								unsigned int pMaxRange, 
@@ -44,5 +44,7 @@ public:
 	unsigned int getStorageCapacity();
 
 	virtual void display();
+
+	virtual void save();
 };
 #endif 

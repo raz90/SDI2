@@ -6,6 +6,7 @@
 // Description:
 #include "landingPlatformDock.h"
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 
@@ -69,5 +70,21 @@ void LandingPlatformDock::display()
 {
 	FleetAuxillary::display();
 	cout << "Number of Aircraft" << LandingPlatformDock::getNoOfAircraft() <<endl;
+
+}
+
+
+void LandingPlatformDock::save()
+{
+	FleetAuxillary::save();
+	
+
+
+	std::ofstream file;
+	file.open("savefile.xml",std::ios::app);
+
+	file<<"<NoOfAircraft>"<<LandingPlatformDock::getNoOfAircraft()<<"</NoOfAircraft>\n";
+					
+	file.close();
 
 }

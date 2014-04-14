@@ -6,6 +6,7 @@
 // Description:
 #include "destroyer.h"
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 unsigned int _primaryWeapon;
@@ -65,5 +66,19 @@ void Destroyer::display()
 	SurfaceVessel::display();
 
 	cout<<" Primary Weapon :"<< Destroyer::getPrimaryWeapon() <<endl;
+
+}
+
+void Destroyer::save()
+{
+	SurfaceVessel::save();
+
+	std::ofstream file;
+	file.open("savefile.xml",std::ios::app);
+
+	file<<"<PriyWeapon>"<<Destroyer::getPrimaryWeapon()<<"</PriyWeapon>\n";
+					
+	file.close();
+
 
 }

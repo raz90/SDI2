@@ -38,6 +38,8 @@ public	:
 		unsigned int getNoHelicopter();
 
 		virtual void display();
+
+		virtual void save();
 };
 
 #endif 
