@@ -16,6 +16,8 @@ public:
 	//constructor
 	DataCon();
 
+	DataCon(std::string filename);
+
 	//destrucotr
 	~DataCon();
 	
@@ -71,9 +73,27 @@ public:
 								unsigned int pStorageCapacity,
 								unsigned int pNoOfAircraft);
 
-	void addDestroyer();
+	void addDestroyer(std::string pVesselName,
+								unsigned int pSignature,
+								unsigned int pLength, 
+								unsigned int pMaxRange, 
+								unsigned int pMaxSpeed, 
+								unsigned int pMaxDisp, 
+								unsigned int pCrew,
+								unsigned int pType,
+								unsigned int pNoOfHelicopter,
+								unsigned int pPrimaryWeapon);
 
-	void addAirCarrier();
+	void addAirCarrier(std::string pVesselName,
+						unsigned int pSignature,
+						unsigned int pLength, 
+						unsigned int pMaxRange, 
+						unsigned int pMaxSpeed, 
+						unsigned int pMaxDisp, 
+						unsigned int pCrew,
+						unsigned int pType,
+						unsigned int pNoOfHelicopter,
+						unsigned int pNoOfAircraft);
 	
 	//browsing
 

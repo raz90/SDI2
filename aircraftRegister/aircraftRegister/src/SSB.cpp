@@ -8,7 +8,7 @@
 #include <fstream>
 using namespace std;
 
-#include "SSB.h"
+#include "../header/SSB.h"
 
 
 unsigned int _totalSLBM;
@@ -84,8 +84,9 @@ unsigned int SSB::getTotalSLBM()
 	Submarine::save();
 	file.open("savefile.xml",std::ios::app);
 
-	file<<"<NoSLBM>"<<SSB::getTotalSLBM()<<"</NoSLBM>\n";
-			
+	file<<"\t\t\t<NoSLBM>"<<SSB::getTotalSLBM()<<"</NoSLBM>\n"
+	<<"\t\t</signature>\n"
+	<<"\t<vessel>\n";	
 	file.close();
 	std::cout<<"save succesful"<<std::endl;
  }

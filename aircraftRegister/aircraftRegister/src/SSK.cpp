@@ -4,7 +4,7 @@
 // Version:
 // Date: 
 // Description :
-#include "SSK.h"
+#include "../header/SSK.h"
 #include <iostream>
 #include <fstream>
 using namespace std;
@@ -79,7 +79,9 @@ void SSK::save()
 	std::ofstream file;
 	file.open("savefile.xml",std::ios::app);
 
-	file<<"<Notorpedo>"<<SSK::getNoTorpedo()<<"</Notorpedo>\n";
+	file<<"\t\t\t<Notorpedo>"<<SSK::getNoTorpedo()<<"</Notorpedo>\n"
+	<<"\t\t</signature>\n"
+	<<"\t</vessel>\n";	
 		std::cout<<"save succesful"<<std::endl;	
 	file.close();
 

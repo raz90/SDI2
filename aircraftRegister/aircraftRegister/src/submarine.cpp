@@ -4,7 +4,7 @@
 // Version:
 // Date: 
 // Description:
-#include "submarine.h"
+#include "../header/submarine.h"
 #include <iostream>
 #include <fstream>
 
@@ -118,9 +118,9 @@ void Submarine::save()
 	std::ofstream file;
 	file.open("savefile.xml",std::ios::app);
 
-	file<<"<MaxDive>"<<Submarine::getMaxDiveDepth()<<"</MaxDive>\n"
-		<<"<maxSubmerge>"<<Submarine::getMaxSpeedSubmerge()<<"</maxSubmerge>\n"
-		<<"<DispSubmerge>"<<Submarine::getDispSubmerge()<<"</DispSubmerge>\n";
+	file<<"\t\t\t<MaxDive>"<<Submarine::getMaxDiveDepth()<<"</MaxDive>\n"
+		<<"\t\t\t<maxSubmerge>"<<Submarine::getMaxSpeedSubmerge()<<"</maxSubmerge>\n"
+		<<"\t\t\t<DispSubmerge>"<<Submarine::getDispSubmerge()<<"</DispSubmerge>\n";
 		
 			
 	file.close();

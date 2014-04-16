@@ -1,8 +1,8 @@
 #include <iostream>
 #include <exception>
-#include "list.h"
+#include "../header/list.h"
 #include <string>
-#include "vessel.h"
+#include "../header/vessel.h"
 
 
 
@@ -141,7 +141,8 @@ anyType* LnLinkedList<anyType>::getCurrent(void)
 	}
 	else
 	{
-		//throw exception(NOT_IN_LIST);
+		return NULL;
+		//throw std::exception(NOT_IN_LIST);
 	}
 }
 
@@ -165,7 +166,7 @@ void LnLinkedList<anyType>::deleteCurrent(void)
  
 	if(_current != NULL )
 	{
-		//Warning: something is missing here! Can you see what?!
+		
 		if (_current->getPrevNode() !=NULL)
 		{
 		_current->getPrevNode()->setNextNode(_current->getNextNode());
@@ -185,33 +186,6 @@ void LnLinkedList<anyType>::deleteCurrent(void)
 		//throw exception(NOT_IN_LIST);
 	}
 } 
-/*
-template <typename anyType>
-void LnLinkedList<anyType>::find(anyType key)
-{
-	
-
-	LnNode *nodePtr;
-	
-	//let pointer point to first element in list
-	nodePtr = _begin;
-	
-	while(nodePtr != NULL )
-	{
-		if(*nodePtr->getData() == key)
-		{
-			_current = nodePtr;
-			return ;
-		}
-		nodePtr = nodePtr->getNextNode();
-	}
-	
-	_current = NULL;
-
-	throw std::exception(NOT_IN_LIST);
-}
-
-*/
 
 
 
@@ -248,6 +222,7 @@ while(node != NULL )
 	}
 	
 	_current = NULL;
-throw std::exception(NOT_IN_LIST);
+	
+//throw std::exception(NOT_IN_LIST);
 
 }

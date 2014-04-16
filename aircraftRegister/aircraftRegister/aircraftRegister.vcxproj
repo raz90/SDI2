@@ -10,6 +10,39 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="header\aircraft.h" />
+    <ClInclude Include="header\aircraftCarrier.h" />
+    <ClInclude Include="header\dataCon.h" />
+    <ClInclude Include="header\destroyer.h" />
+    <ClInclude Include="header\fleetAuxillary.h" />
+    <ClInclude Include="header\landingPlatformDock.h" />
+    <ClInclude Include="header\list.h" />
+    <ClInclude Include="header\parser.h" />
+    <ClInclude Include="header\SSB.h" />
+    <ClInclude Include="header\SSK.h" />
+    <ClInclude Include="header\submarine.h" />
+    <ClInclude Include="header\surfaceVessel.h" />
+    <ClInclude Include="header\tanker.h" />
+    <ClInclude Include="header\vessel.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\aircraft.cpp" />
+    <ClCompile Include="src\aircraftCarrier.cpp" />
+    <ClCompile Include="src\dataCon.cpp" />
+    <ClCompile Include="src\destroyer.cpp" />
+    <ClCompile Include="src\fleetAuxillary.cpp" />
+    <ClCompile Include="src\landingPlatformDock.cpp" />
+    <ClCompile Include="src\list.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\parser.cpp" />
+    <ClCompile Include="src\SSB.cpp" />
+    <ClCompile Include="src\SSK.cpp" />
+    <ClCompile Include="src\submarine.cpp" />
+    <ClCompile Include="src\surfaceVessel.cpp" />
+    <ClCompile Include="src\tanker.cpp" />
+    <ClCompile Include="src\vessel.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{55818D57-D03E-49E6-BCB1-3CFF321C1CFF}</ProjectGuid>
     <RootNamespace>aircraftRegister</RootNamespace>
@@ -72,38 +105,6 @@
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="aircraftCarrier.cpp" />
-    <ClCompile Include="dataCon.cpp" />
-    <ClCompile Include="destroyer.cpp" />
-    <ClCompile Include="fleetAuxillary.cpp" />
-    <ClCompile Include="landingPlatformDock.cpp" />
-    <ClCompile Include="list.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="SSB.cpp" />
-    <ClCompile Include="SSK.cpp" />
-    <ClCompile Include="submarine.cpp" />
-    <ClCompile Include="surfaceVessel.cpp" />
-    <ClCompile Include="tanker.cpp" />
-    <ClCompile Include="vessel.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="aircraftCarrier.h" />
-    <ClInclude Include="dataCon.h" />
-    <ClInclude Include="destroyer.h" />
-    <ClInclude Include="fleetAuxillary.h" />
-    <ClInclude Include="landingPlatformDock.h" />
-    <ClInclude Include="list.h" />
-    <ClInclude Include="SSB.h" />
-    <ClInclude Include="SSK.h" />
-    <ClInclude Include="submarine.h" />
-    <ClInclude Include="surfaceVessel.h" />
-    <ClInclude Include="tanker.h" />
-    <ClInclude Include="vessel.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="aircraftRegister.suo" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -4,7 +4,7 @@
 // Version:
 // Date: 
 // Description:
-#include "vessel.h"
+#include "../header/vessel.h"
 #include <iostream>
 #include <fstream>
 using namespace std;
@@ -127,14 +127,15 @@ using namespace std;
 	std::ofstream file;
 	file.open("savefile.xml",std::ios::app);
 
-	file<<"<vessel>"<<Vessel::getVesselName()<<"</vessel>\n"
-		<<"<signature>"<<Vessel::getSignature()<<"</signature>\n"
-		<<"<maxSpeed>"<<Vessel::getMaxSpeed()<<"</maxSpeed>\n"
-		<<"<length>"<<Vessel::getLength()<<"</Length>\n"
-		<<"<maxRange>"<<Vessel::getMaxRange()<<"</maxRange>\n"
-		<<"<maxDisp>"<<Vessel::getMaxDisp()<<"</maxDisp>\n"	
-		<<"<crew>"<<Vessel::getCrew()<<"</crew>\n"
-		<<"<vesType>"<<Vessel::getType()<<"</vesType>\n";
+	file<<"\t<vessel type="<<Vessel::getType()<<">\n"
+		<<"\t\t<signature type="<<Vessel::getSignature()<<">\n"
+		<<"\t\t\t<name>"<<Vessel::getVesselName()<<"</name>\n"
+		<<"\t\t\t<maxSpeed>"<<Vessel::getMaxSpeed()<<"</maxSpeed>\n"
+		<<"\t\t\t<length>"<<Vessel::getLength()<<"</Length>\n"
+		<<"\t\t\t<maxRange>"<<Vessel::getMaxRange()<<"</maxRange>\n"
+		<<"\t\t\t<maxDisp>"<<Vessel::getMaxDisp()<<"</maxDisp>\n"	
+		<<"\t\t\t<crew>"<<Vessel::getCrew()<<"</crew>\n";
+		
 	
 	file.close();
 	

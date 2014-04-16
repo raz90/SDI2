@@ -4,7 +4,7 @@
 // Version:
 // Date: 
 // Description:
-#include "landingPlatformDock.h"
+#include "../header/landingPlatformDock.h"
 #include <iostream>
 #include <fstream>
 using namespace std;
