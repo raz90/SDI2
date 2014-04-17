@@ -112,10 +112,10 @@ void FleetAuxillary::save()
 	SurfaceVessel::save();
 
 	std::ofstream file;
-	file.open("savefile.xml",std::ios::app);
+	file.open("savefile.txt",std::ios::app);
 
-	file<<"<DeckSpace>"<<FleetAuxillary::getDeckSpace()<<"</DeckSpace>\n"
-		<<"<StorCap>"<<FleetAuxillary::getStorageCapacity()<<"</StorCap>\n";
+	file<<FleetAuxillary::getDeckSpace()<<","
+		<<FleetAuxillary::getStorageCapacity()<<",";
 					
 	file.close();
 

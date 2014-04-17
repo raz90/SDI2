@@ -94,9 +94,9 @@ void SurfaceVessel::save()
 {
 	Vessel::save();
 	std::ofstream file;
-	file.open("savefile.xml",std::ios::app);
+	file.open("savefile.txt",std::ios::app);
 
-	file<<"<NoOfHeli>"<<SurfaceVessel::getNoHelicopter()<<"</NoOfHeli>\n";
+	file<<SurfaceVessel::getNoHelicopter()<<",";
 		
 			
 	file.close();

@@ -79,10 +79,10 @@ void Tanker::save()
 
 
 	std::ofstream file;
-	file.open("savefile.xml",std::ios::app);
+	file.open("savefile.txt",std::ios::app);
 
-	file<<"<DeckSpace>"<<Tanker::getDeckSpace()<<"</DeckSpace>\n"
-		<<"<StorCap>"<<Tanker::getStorageCapacity()<<"</StorCap>\n";
+	file<<Tanker::getDeckSpace()<<","
+		<<Tanker::getStorageCapacity()<<"\n";
 					
 	file.close();
 

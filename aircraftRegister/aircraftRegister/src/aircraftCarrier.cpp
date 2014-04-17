@@ -74,10 +74,10 @@ void AircraftCarrier::save()
 	SurfaceVessel::save();
 
 	std::ofstream file;
-	file.open("savefile.xml",std::ios::app);
+	file.open("savefile.txt",std::ios::app);
 
-	file<<"<NoOfAircraft>"<<AircraftCarrier::getNoOfAircraft()<<"</NoOfAircraft>\n";
-	file<<"</signature>\n";				
+	file<<AircraftCarrier::getNoOfAircraft()<<"\n";
+				
 	file.close();
 
 

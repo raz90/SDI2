@@ -81,9 +81,9 @@ void LandingPlatformDock::save()
 
 
 	std::ofstream file;
-	file.open("savefile.xml",std::ios::app);
+	file.open("savefile.txt",std::ios::app);
 
-	file<<"<NoOfAircraft>"<<LandingPlatformDock::getNoOfAircraft()<<"</NoOfAircraft>\n";
+	file<<LandingPlatformDock::getNoOfAircraft()<<"\n";
 					
 	file.close();
 

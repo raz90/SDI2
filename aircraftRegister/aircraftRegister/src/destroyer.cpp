@@ -38,7 +38,7 @@ Destroyer::Destroyer(std::string pVesselName,
 					 pMaxDisp, 
 					 pCrew,
 					 pType,
-					 pPrimaryWeapon);
+					 pNoOfHelicopter);
 
 	_primaryWeapon=pPrimaryWeapon;
 
@@ -74,9 +74,9 @@ void Destroyer::save()
 	SurfaceVessel::save();
 
 	std::ofstream file;
-	file.open("savefile.xml",std::ios::app);
+	file.open("savefile.txt",std::ios::app);
 
-	file<<"<PriyWeapon>"<<Destroyer::getPrimaryWeapon()<<"</PriyWeapon>\n";
+	file<<Destroyer::getPrimaryWeapon()<<"\n";
 					
 	file.close();
 

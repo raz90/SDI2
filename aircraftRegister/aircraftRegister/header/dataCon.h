@@ -109,6 +109,18 @@ public:
 
 	int getCount();
 
+	void saveSSB(std::string sentence);
+
+	void saveSSK(std::string sentence);
+
+	void saveTanker(std::string sentence);
+
+	void saveLanding(std::string sentence);
+
+	void saveAirCarrier(std::string sentence);
+
+	void saveDestroyer(std::string sentence);
+
 	//void bubbleSort();
 
 	
