@@ -125,16 +125,16 @@ using namespace std;
 	void Vessel::save()
 	{
 	std::ofstream file;
-	file.open("savefile.xml",std::ios::app);
+	file.open("savefile.txt",std::ios::app);
 
-	file<<"\t<vessel type="<<Vessel::getType()<<">\n"
-		<<"\t\t<signature type="<<Vessel::getSignature()<<">\n"
-		<<"\t\t\t<name>"<<Vessel::getVesselName()<<"</name>\n"
-		<<"\t\t\t<maxSpeed>"<<Vessel::getMaxSpeed()<<"</maxSpeed>\n"
-		<<"\t\t\t<length>"<<Vessel::getLength()<<"</Length>\n"
-		<<"\t\t\t<maxRange>"<<Vessel::getMaxRange()<<"</maxRange>\n"
-		<<"\t\t\t<maxDisp>"<<Vessel::getMaxDisp()<<"</maxDisp>\n"	
-		<<"\t\t\t<crew>"<<Vessel::getCrew()<<"</crew>\n";
+	file<<"$"<<Vessel::getType()<<","
+		<<Vessel::getSignature()<<","
+		<<Vessel::getVesselName()<<","
+		<<Vessel::getMaxSpeed()<<","
+		<<Vessel::getLength()<<","
+		<<Vessel::getMaxRange()<<","
+		<<Vessel::getMaxDisp()<<","	
+		<<Vessel::getCrew()<<",";
 		
 	
 	file.close();

@@ -116,11 +116,11 @@ void Submarine::save()
 {
 	Vessel::save();
 	std::ofstream file;
-	file.open("savefile.xml",std::ios::app);
+	file.open("savefile.txt",std::ios::app);
 
-	file<<"\t\t\t<MaxDive>"<<Submarine::getMaxDiveDepth()<<"</MaxDive>\n"
-		<<"\t\t\t<maxSubmerge>"<<Submarine::getMaxSpeedSubmerge()<<"</maxSubmerge>\n"
-		<<"\t\t\t<DispSubmerge>"<<Submarine::getDispSubmerge()<<"</DispSubmerge>\n";
+	file<<Submarine::getMaxDiveDepth()<<","
+		<<Submarine::getMaxSpeedSubmerge()<<","
+		<<Submarine::getDispSubmerge()<<",";
 		
 			
 	file.close();

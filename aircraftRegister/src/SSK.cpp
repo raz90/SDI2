@@ -77,13 +77,11 @@ void SSK::save()
 {
 	Submarine::save();
 	std::ofstream file;
-	file.open("savefile.xml",std::ios::app);
+	file.open("savefile.txt",std::ios::app);
 
-	file<<"\t\t\t<Notorpedo>"<<SSK::getNoTorpedo()<<"</Notorpedo>\n"
-	<<"\t\t</signature>\n"
-	<<"\t</vessel>\n";	
-		std::cout<<"save succesful"<<std::endl;	
+	file<<SSK::getNoTorpedo()<<"\n";	
+			
 	file.close();
-
+	std::cout<<"save succesful"<<std::endl;
 
 }

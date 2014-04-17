@@ -18,7 +18,6 @@
     <ClInclude Include="header\fleetAuxillary.h" />
     <ClInclude Include="header\landingPlatformDock.h" />
     <ClInclude Include="header\list.h" />
-    <ClInclude Include="header\parser.h" />
     <ClInclude Include="header\SSB.h" />
     <ClInclude Include="header\SSK.h" />
     <ClInclude Include="header\submarine.h" />
@@ -35,7 +34,6 @@
     <ClCompile Include="src\landingPlatformDock.cpp" />
     <ClCompile Include="src\list.cpp" />
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\parser.cpp" />
     <ClCompile Include="src\SSB.cpp" />
     <ClCompile Include="src\SSK.cpp" />
     <ClCompile Include="src\submarine.cpp" />

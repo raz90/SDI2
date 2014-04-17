@@ -16,7 +16,7 @@ public:
 	//constructor
 	DataCon();
 
-	DataCon(std::string filename);
+	void load(std::string filename);
 
 	//destrucotr
 	~DataCon();

@@ -17,6 +17,10 @@
 #include "../header/list.h"
 #include <string>
 #include <fstream>
+#include <vector>
+#include <sstream>
+#include <cstdlib>
+
 
 
 
@@ -342,10 +346,8 @@ void DataCon<anyType>::save()
 			
 
 			std::ofstream file;
-			file.open("savefile.xml",std::ios::trunc);
-			//file<<"<?xml version="<<1.0<<"?>"
-			file<<"<vessels>\n";
-					
+			file.open("savefile.txt",std::ios::trunc);
+			file<<"";
 			file.close();
 	
 			while (current != NULL)
@@ -356,11 +358,7 @@ void DataCon<anyType>::save()
 			}
 
 			
-			file.open("savefile.xml",std::ios::app);
-
-			file<<"</vessels>";
-					
-			file.close();
+			
 	}
 	else
 	{
@@ -379,86 +377,154 @@ int DataCon<anyType>::getCount()
 
 
 template <class anyType> 
- DataCon<anyType>::DataCon(std::string filename)
+ void DataCon<anyType>::load(std::string filename)
 {
-	 {
-        std::ostringstream oss;
-        ctorSucceeded_ = false;
-        if (isFileName)
-        {
-            std::string fileName = source;
-            string content, line;
-            std::ifstream fin(fileName.c_str());
-            if (!fin)
-            {
-                oss << std::endl << "error opening constructor source file " << fileName ;
-                ctorReport_ = oss.str();
-                return;
-            }
-            oss << std::endl << "source file " << fileName << " opened okay";
-            while (fin.good())
-            {
-                getline(fin, line);
-                content += '\n';
-                content += line;
-            }
-            oss << std::endl << "source file " << fileName << " read okay";
-            source.swap(content);
-        }
-        if (!tagExists(source,"vessels"))
-        {
-            oss << std::endl << "no vessels tag ";
-            ctorReport_ = oss.str();
-            return;
-        }
-        if (!tagExists(source,"rte"))
-        {
-            oss << std::endl << "no rte tag ";
-            ctorReport_ = oss.str();
-            return;
-        }
-        string temp = getWholeElement(source, "vessels");
-        temp = getElementValue(temp, "vessels");
-        source.swap(temp);
-        if (source.substr(0,6)== "<name>")
-        {
-            string temp = getWholeElement(source, "name");
-            source = source.substr(temp.length());
-            routeName_ = getElementValue(temp, "name");
-            oss << std::endl << "route name is " << routeName_;
-        }
-        while (tagExists(source, "rtept"))
-        {
-            temp  = getWholeElement(source, "rtept");
-            source = source.substr(temp.length());
-            string lt, ln, el, nm;
-            lt = getAttributeValue(temp, "rtept", "lat");
-            ln = getAttributeValue(temp, "rtept", "lon");
-            el = getElementValue(temp, "ele");
-            posnName_.push_back(tagExists(temp,"name") ? getElementValue(temp, "name"): string(""));
-            root_.push_back(Posn(lt, ln, el));
-        }
-        oss << std::endl << root_.size() << " rtept added";
-        if (root_.empty())
-        {
-		    oss << std::endl << "no rtept ";
-            ctorReport_ = oss.str();
-            return;
-        }
-        
-        oss << std::endl << " simplify() not implemented";
-        //simplify();
-        ctorReport_ = oss.str();
-        ctorSucceeded_ = true;
-        return;
-    }
-    
-    bool Route::builtOk() const
-    {
-        return ctorSucceeded_;
-    }
+	  
+	std::vector <std::string> vectline;
+	std::string line;
+	std::ifstream myfile (filename.c_str());
+	
+			if(myfile.is_open())
+			{ 
+			
+				while (!myfile.eof())
+				{
+				myfile>>line;
+				
+				
+				vectline.push_back(line);
+				
+				
+				}
+				myfile.close();
+			}
 
+	for (int start=0;start<vectline.size()-1;start++)
+	{
+	std::string sentence;
+	sentence=vectline[start];
 
+	std::string gpmcheck=sentence;	
+	std::size_t found=gpmcheck.find_first_of(',');
+	std::string check;
+	if (found!=std::string::npos)
+	for (unsigned int i=0; i<found;++i)
+					{
+						
+						check=check+gpmcheck[i];
+						
+					}
+		
+		
+					
+		if (check=="$1")
+		{
+					std::string pVesselName;
+					std::string pSignature,pLength,pMaxRange,
+					pMaxSpeed,pMaxDisp,pCrew,pVessType,pMaxDive,pMaxSpeedSubmerge,
+					pDispSubmerge,pTotalSLBM;
+					
+					std::string line=sentence;
+					
+					for (unsigned int i=0; i<line.size();++i)
+							{
+								if (line[i]==','||line[i]=='$')
+								{
+								line[i]=' ';
+								}
+								std::istringstream in(line);
+								
+								in>>pVessType>>pSignature>>pVesselName>>pLength
+								>>pMaxRange>>pMaxSpeed>>pMaxDisp>>pCrew>>pMaxDive
+							    >>pMaxSpeedSubmerge>>pDispSubmerge>>pTotalSLBM;
+					
+								
+							}
+
+					
+					
+			unsigned int	Signature=std::stoul(pSignature);
+			unsigned int	Length=std::stoul(pLength);
+			unsigned int	MaxRange=std::stoul(pMaxRange);
+			unsigned int	MaxSpeed=std::stoul(pMaxSpeed);
+			unsigned int	MaxDisp=std::stoul(pMaxDisp);
+			unsigned int	Crew=std::stoul(pCrew);
+			unsigned int	VessType=std::stoul(pVessType);
+			unsigned int	MaxDive=std::stoul(pMaxDive);
+			unsigned int	MaxSpeedSubmerge=std::stoul(pMaxSpeedSubmerge);
+			unsigned int	DispSubmerge=std::stoul(pDispSubmerge);
+			unsigned int	TotalSLBM=std::stoul(pTotalSLBM);
+
+			DataCon::addSSB(pVesselName,
+						 Signature,
+						 Length, 
+						 MaxRange, 
+						 MaxSpeed, 
+						 MaxDisp, 
+						 Crew,
+						 VessType,
+						 MaxDive,
+						 MaxSpeedSubmerge,
+						 DispSubmerge,
+						 TotalSLBM);	
+			
+		}
+		else if (check=="$2")
+		{
+					std::string pVesselName;
+					std::string pSignature,pLength,pMaxRange,
+					pMaxSpeed,pMaxDisp,pCrew,pVessType,pMaxDive,pMaxSpeedSubmerge,
+					pDispSubmerge,pTorpedo;
+					
+					std::string line=sentence;
+					
+					for (unsigned int i=0; i<line.size();++i)
+							{
+								if (line[i]==','||line[i]=='$')
+								{
+								line[i]=' ';
+								}
+								std::istringstream in(line);
+								
+								in>>pVessType>>pSignature>>pVesselName>>pLength
+								>>pMaxRange>>pMaxSpeed>>pMaxDisp>>pCrew>>pMaxDive
+							    >>pMaxSpeedSubmerge>>pDispSubmerge>>pTorpedo;
+					
+								
+							}
+
+					
+					
+			unsigned int	Signature=std::stoul(pSignature);
+			unsigned int	Length=std::stoul(pLength);
+			unsigned int	MaxRange=std::stoul(pMaxRange);
+			unsigned int	MaxSpeed=std::stoul(pMaxSpeed);
+			unsigned int	MaxDisp=std::stoul(pMaxDisp);
+			unsigned int	Crew=std::stoul(pCrew);
+			unsigned int	VessType=std::stoul(pVessType);
+			unsigned int	MaxDive=std::stoul(pMaxDive);
+			unsigned int	MaxSpeedSubmerge=std::stoul(pMaxSpeedSubmerge);
+			unsigned int	DispSubmerge=std::stoul(pDispSubmerge);
+			unsigned int	NoOfTorpedo=std::stoul(pTorpedo);
+
+			DataCon::addSSK(pVesselName,
+						 Signature,
+						 Length, 
+						 MaxRange, 
+						 MaxSpeed, 
+						 MaxDisp, 
+						 Crew,
+						 VessType,
+						 MaxDive,
+						 MaxSpeedSubmerge,
+						 DispSubmerge,
+						 NoOfTorpedo);	
+			
+		}	
+	}
+
+		std::cout<<"loaded"<<std::endl;
+	
 }
 
 
