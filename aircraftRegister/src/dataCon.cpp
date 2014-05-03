@@ -535,29 +535,29 @@ try
 					
 			if (check=="$1")//to perform check type  vessel from file
 			{
-				saveSSB(sentence);		
+				loadSSB(sentence);		
 			
 			}
 			else if (check=="$2")//to perform check type  vessel from file
 			{
 					
-				saveSSK(sentence);
+				loadSSK(sentence);
 			}	
 			else if (check=="$3")//to perform check type  vessel from file
 			{
-				saveTanker(sentence);
+				loadTanker(sentence);
 			}
 			else if (check=="$4")//to perform check type  vessel from file
 			{
-				saveLanding(sentence);
+				loadLanding(sentence);
 			}
 			else if (check=="$5")//to perform check type  vessel from file
 			{
-				saveAirCarrier(sentence);
+				loadAirCarrier(sentence);
 			}
 			else if (check=="$6")//to perform check type  vessel from file
 			{
-				saveDestroyer(sentence);
+				loadDestroyer(sentence);
 			}
 		}
 		vectline.clear(); //clear all the data inside vector
@@ -640,7 +640,7 @@ else
 }
 */
 template <class anyType> 
-void DataCon<anyType>::saveSSB(std::string line)
+void DataCon<anyType>::loadSSB(std::string line)
 {
 	std::string pVesselName;
 	std::string pSignature,pLength,pMaxRange,
@@ -694,7 +694,7 @@ void DataCon<anyType>::saveSSB(std::string line)
 }
 
 template <class anyType> 
-void DataCon<anyType>::saveSSK(std::string line)
+void DataCon<anyType>::loadSSK(std::string line)
 {
 	std::string pVesselName;
 	std::string pSignature,pLength,pMaxRange,
@@ -746,7 +746,7 @@ void DataCon<anyType>::saveSSK(std::string line)
 }
 
 template <class anyType> 
-void DataCon<anyType>::saveTanker(std::string line)
+void DataCon<anyType>::loadTanker(std::string line)
 {
 	std::string pVesselName;
 	std::string pSignature,pLength,pMaxRange,
@@ -795,7 +795,7 @@ void DataCon<anyType>::saveTanker(std::string line)
 }
 
 template <class anyType> 
-void DataCon<anyType>::saveLanding(std::string line)
+void DataCon<anyType>::loadLanding(std::string line)
 {
 	std::string pVesselName;
 	std::string pSignature,pLength,pMaxRange,
@@ -846,7 +846,7 @@ void DataCon<anyType>::saveLanding(std::string line)
 }
 
 template <class anyType> 
-void DataCon<anyType>::saveAirCarrier(std::string line)
+void DataCon<anyType>::loadAirCarrier(std::string line)
 {
 	std::string pVesselName;
 	std::string pSignature,pLength,pMaxRange,
@@ -893,7 +893,7 @@ void DataCon<anyType>::saveAirCarrier(std::string line)
 }
 
 template <class anyType> 
-void DataCon<anyType>::saveDestroyer(std::string line)
+void DataCon<anyType>::loadDestroyer(std::string line)
 {
 	std::string pVesselName;
 	std::string pSignature,pLength,pMaxRange,
@@ -958,8 +958,8 @@ try
 
   /* generate  number between 1 and 9999: */
   randVess = rand() % 9999 + 1;
-
-
+  
+  std::cout<<"random vessel signature"<<randVess<<std::endl;
 
 			LnNode<anyType> *current = NULL;
 			current =_dataList.getBegin();	// Set current to head of list

@@ -103,17 +103,17 @@ public:
 
 	int getCount();
 
-	void saveSSB(std::string sentence);
+	void loadSSB(std::string sentence);
 
-	void saveSSK(std::string sentence);
+	void loadSSK(std::string sentence);
 
-	void saveTanker(std::string sentence);
+	void loadTanker(std::string sentence);
 
-	void saveLanding(std::string sentence);
+	void loadLanding(std::string sentence);
 
-	void saveAirCarrier(std::string sentence);
+	void loadAirCarrier(std::string sentence);
 
-	void saveDestroyer(std::string sentence);
+	void loadDestroyer(std::string sentence);
 
 	void observe();
 
